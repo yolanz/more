@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oir</title>
+    <style>
+        /* Defina a cor de fundo do corpo (body) */
+        body {
+            background-color: #a53838; /* Cor vermelho */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .welcome-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-box">
+        <h2>Bem-Vindo!</h2>
+        <p>quanto você me ama?</p>
+        <div class="button-container">
+            <button class="button" id="button-love">Muito</button>
+            <button class="button" id="button-not-sure">Não tenho certeza</button>
+        </div>
+    </div>
+
+    <script>
+        const buttonLove = document.getElementById("button-love");
+        const buttonNotSure = document.getElementById("button-not-sure");
+
+        const buttonWidth = buttonNotSure.offsetWidth;
+        const buttonHeight = buttonNotSure.offsetHeight;
+
+        buttonLove.addEventListener("click", () => {
+            window.location.href = "novapagina.html"; // Substitua "novapagina.html" pela URL da nova página desejada
+        });
+
+        buttonNotSure.addEventListener("click", () => {
+            const maxX = window.innerWidth - buttonWidth;
+            const maxY = window.innerHeight - buttonHeight;
+
+            const randomX = Math.floor(Math.random() * (maxX - buttonWidth));
+            const randomY = Math.floor(Math.random() * (maxY - buttonHeight));
+
+            buttonNotSure.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        });
+    </script>
+</body>
+</html>
